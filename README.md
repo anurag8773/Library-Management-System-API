@@ -39,10 +39,10 @@ The application will start running on `http://127.0.0.1:5000/`. You can now make
 ### 4. Testing the API
   Once the server is running, you can test the different API routes as follows:
 
-  `Login (to get a token): POST /login`
- `Request body: { "email": "member@example.com" }`
-  `Response: { "token": "generated-token" }`
-  `Add Book: POST /books`
+  -`Login (to get a token): POST /login`
+  -`Request body: { "email": "member@example.com" }`
+  -`Response: { "token": "generated-token" }`
+  -`Add Book: POST /books`
 
   Headers: Authorization: <generated-token>
   Request body:
@@ -51,27 +51,27 @@ The application will start running on `http://127.0.0.1:5000/`. You can now make
   Response: Books matching the search query.
 
 ### 5. Example Requests
-  **Get a list of books:** `GET /books?page=1`
-  **Get details of a single book:** `GET /books/{id}`
-  **Update a book:** `PUT /books/{id}`
-  **Delete a book:** `DELETE /books/{id}`
+-**Get a list of books:** `GET /books?page=1`
+-**Get details of a single book:** `GET /books/{id}`
+-**Update a book:** `PUT /books/{id}`
+-**Delete a book:** `DELETE /books/{id}`
 
 ## Design Choices Made
-  **1. Flask Framework:**
+-**1. Flask Framework:**
       Flask is a micro web framework that is lightweight, easy to use, and ideal for building small APIs. It is used in this project due to its simplicity and flexibility.
-  **2. In-Memory Data Storage:**
+-**2. In-Memory Data Storage:**
       For simplicity, book and member data is stored in memory (using Python lists). This makes the app quick to set up but limits scalability and persistence.
-  **3. Token-Based Authentication:**
+-**3. Token-Based Authentication:**
       A simple token-based authentication system is used to ensure that only authorized users can perform sensitive actions like adding, updating, or deleting books.
-  **4. Pagination:**
+-**4. Pagination:**
       Pagination has been implemented for listing books. By default, each request returns 5 books per page, but this can be adjusted to handle larger datasets.
-  **5. Book Search:**
+-**5. Book Search:**
       The search functionality supports searching books by title and author. The search is case-insensitive and returns matching books.
-  **6. Flask Routing:**
+-**6. Flask Routing:**
       Each route is dedicated to a specific task such as adding, updating, or deleting books. This ensures clear, simple, and readable code.
-## Assumptions and Limitations
+
 ## Assumptions:
-    **In-Memory Data:** The system assumes that the book and member data are stored in-memory, meaning it will be lost if the server restarts. For a production system, a database should be used.
+  **In-Memory Data:** The system assumes that the book and member data are stored in-memory, meaning it will be lost if the server restarts. For a production system, a database should be used.
 
   **Token Authentication:** The system assumes users log in with a valid email address, generating a unique token for authentication in subsequent requests.
 
