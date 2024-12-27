@@ -25,39 +25,36 @@ Ensure you have the following installed on your machine:
 
 Create a virtual environment (optional but recommended):
 
-```bash```
-python -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-Install the required dependencies:
-  pip install Flask
+`python -m venv venv`
+`source venv/bin/activate`  # On Windows, use `venv\Scripts\activate`
+**Install the required dependencies:**
+  `pip install Flask`
 
 ### 3. Run the Application
 Once the dependencies are installed, you can start the Flask server by running the app.py file:
-  ```bash```
-  python -m venv venv
+ `python -m venv venv`
 
-The application will start running on http://127.0.0.1:5000/. You can now make API requests to this endpoint using tools like Postman or cURL.
+The application will start running on `http://127.0.0.1:5000/`. You can now make API requests to this endpoint using tools like Postman or cURL.
 
 ### 4. Testing the API
   Once the server is running, you can test the different API routes as follows:
 
-  Login (to get a token): POST /login
-
-  Request body: { "email": "member@example.com" }
-  Response: { "token": "generated-token" }
-  Add Book: POST /books
+  `Login (to get a token): POST /login`
+ `Request body: { "email": "member@example.com" }`
+  `Response: { "token": "generated-token" }`
+  `Add Book: POST /books`
 
   Headers: Authorization: <generated-token>
   Request body:
-  Search Books: GET /books/search?title=Flask
-  Query parameters: title=Flask
+  **Search Books:** `GET /books/search?title=Flask`
+  **Query parameters:** `title=Flask`
   Response: Books matching the search query.
 
 ### 5. Example Requests
-  Get a list of books: GET /books?page=1
-  Get details of a single book: GET /books/{id}
-  Update a book: PUT /books/{id}
-  Delete a book: DELETE /books/{id}
+  **Get a list of books:** `GET /books?page=1`
+  **Get details of a single book:** `GET /books/{id}`
+  **Update a book:** `PUT /books/{id}`
+  **Delete a book:** `DELETE /books/{id}`
 
 ## Design Choices Made
   **1. Flask Framework:**
@@ -73,7 +70,7 @@ The application will start running on http://127.0.0.1:5000/. You can now make A
   **6. Flask Routing:**
       Each route is dedicated to a specific task such as adding, updating, or deleting books. This ensures clear, simple, and readable code.
 ## Assumptions and Limitations
-  **Assumptions:**
+## Assumptions:
     **In-Memory Data:** The system assumes that the book and member data are stored in-memory, meaning it will be lost if the server restarts. For a production system, a database should be used.
 
   **Token Authentication:** The system assumes users log in with a valid email address, generating a unique token for authentication in subsequent requests.
