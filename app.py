@@ -4,22 +4,18 @@ import hashlib
 
 app = Flask(__name__)
 
-# In-memory storage
 books = []
 members = []
 tokens = {}
 
-# Helper: Check token validity
 def is_token_valid(token):
     return token in tokens and tokens[token]['valid']
 
-# Helper: Generate a unique token
 def create_token(member_id):
     token = hashlib.sha256(f"{member_id}{datetime.now()}".encode()).hexdigest()
     tokens[token] = {"valid": True, "member_id": member_id}
     return token
 
-# Book model
 class Book:
     def __init__(self, title, author, isbn):
         self.id = len(books) + 1
@@ -37,7 +33,6 @@ class Book:
             "created_at": self.created_at.strftime("%Y-%m-%d %H:%M:%S")
         }
 
-# Member model
 class Member:
     def __init__(self, name, email):
         self.id = len(members) + 1
@@ -47,7 +42,6 @@ class Member:
     def to_dict(self):
         return {"id": self.id, "name": self.name, "email": self.email}
 
-# Routes
 @app.route("/books", methods=["POST"])
 def add_book():
     token = request.headers.get('Authorization')
