@@ -57,18 +57,18 @@ The application will start running on `http://127.0.0.1:5000/`. You can now make
 -**Delete a book:** `DELETE /books/{id}`
 
 ## Design Choices Made
--**1. Flask Framework:**
-      Flask is a micro web framework that is lightweight, easy to use, and ideal for building small APIs. It is used in this project due to its simplicity and flexibility.
--**2. In-Memory Data Storage:**
-      For simplicity, book and member data is stored in memory (using Python lists). This makes the app quick to set up but limits scalability and persistence.
--**3. Token-Based Authentication:**
-      A simple token-based authentication system is used to ensure that only authorized users can perform sensitive actions like adding, updating, or deleting books.
--**4. Pagination:**
-      Pagination has been implemented for listing books. By default, each request returns 5 books per page, but this can be adjusted to handle larger datasets.
--**5. Book Search:**
-      The search functionality supports searching books by title and author. The search is case-insensitive and returns matching books.
--**6. Flask Routing:**
-      Each route is dedicated to a specific task such as adding, updating, or deleting books. This ensures clear, simple, and readable code.
+  ### 1. Flask Framework:
+  Flask is a micro web framework that is lightweight, easy to use, and ideal for building small APIs. It is used in this project due to its simplicity and flexibility.
+  ### 2. In-Memory Data Storage:
+   For simplicity, book and member data is stored in memory (using Python lists). This makes the app quick to set up but limits scalability and persistence.
+  ### 3. Token-Based Authentication:
+  A simple token-based authentication system is used to ensure that only authorized users can perform sensitive actions like adding, updating, or deleting books.
+### 4. Pagination:
+  Pagination has been implemented for listing books. By default, each request returns 5 books per page, but this can be adjusted to handle larger datasets.
+### 5. Book Search:
+  The search functionality supports searching books by title and author. The search is case-insensitive and returns matching books.
+### 6. Flask Routing:
+  Each route is dedicated to a specific task such as adding, updating, or deleting books. This ensures clear, simple, and readable code.
 
 ## Assumptions:
   **In-Memory Data:** The system assumes that the book and member data are stored in-memory, meaning it will be lost if the server restarts. For a production system, a database should be used.
